@@ -6,7 +6,6 @@ class Recipe:
         self.ingredients = ingredients
         self.description = description
         self.recipe_type = recipe_type
-        self.__str__()
 
     def push_data(self):
         if not isinstance(self.name, str):
@@ -19,9 +18,7 @@ class Recipe:
             raise AttributeError
         if not isinstance(self.description, str):
             raise AttributeError
-        if not isinstance(self.recipe_type, str) or (self.recipe_type != "starter"
-                                                     and self.recipe_type != "lunch"
-                                                     and self.recipe_type != "dessert"):
+        if not isinstance(self.recipe_type, str) or (self.recipe_type != "starter" and self.recipe_type != "lunch" and self.recipe_type != "dessert"):
             raise AttributeError
 
     def __str__(self):
@@ -36,9 +33,10 @@ class Recipe:
             res = "".join(res + "Recipe_type: " + self.recipe_type)
             return res
         except AttributeError:
-            print("• name (str)\n"
+            return ("• name (str)\n"
                   "• cooking_lvl (int) : range 1 to 5\n"
                   "• cooking_time (int) : in minutes (no negative numbers)\n"
                   "• ingredients (list) : list of all ingredients each represented by a string\n"
                   "• description (str) : description of the recipe\n"
                   "• recipe_type (str) : can be 'starter', 'lunch' or 'dessert'.)")
+
