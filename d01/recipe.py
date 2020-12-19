@@ -7,7 +7,7 @@ class Recipe:
         self.description = description
         self.recipe_type = recipe_type
 
-    def push_data(self):
+    def check_data(self):
         if not isinstance(self.name, str):
             raise AttributeError
         if not isinstance(self.cook_lvl, int) or self.cook_lvl not in range(0, 5):
@@ -23,14 +23,14 @@ class Recipe:
 
     def __str__(self):
         try:
-            self.push_data()
+            self.check_data()
             res = ""
             res = res.join("Name: " + self.name + '\n')
-            res = "".join(res + "Cook_lvl: " + str(self.cook_lvl) + '\n')
-            res = "".join(res + "Cook_time: " + str(self.cook_time) + '\n')
+            res = "".join(res + "Cooking lvl: " + str(self.cook_lvl) + '\n')
+            res = "".join(res + "Cooking time: " + str(self.cook_time) + '\n')
             res = "".join(res + "Ingredients: " + str(self.ingredients) + '\n')
             res = "".join(res + "Description: " + self.description + '\n')
-            res = "".join(res + "Recipe_type: " + self.recipe_type)
+            res = "".join(res + "Recipe type: " + self.recipe_type)
             return res
         except AttributeError:
             return ("• name (str)\n"
